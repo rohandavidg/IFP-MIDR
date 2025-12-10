@@ -192,9 +192,9 @@ def plot_precision_recall(data, features, label_col, filename):
 
 def main():
     # --- Settings & Filepaths ---
-    mutation_filepath = "../../output/AF2_Disorder_deleterious_neutral_vus_results_filtered.tsv"
-    fasta_dir = '/projects/wangc/rohan/missense_prediction/disorder/disorder/alphafold/fasta_download'
-    output_features_csv = "../../output/AF2_disorder_albertross_prediction_all.tsv"
+    mutation_filepath = "output/AF2_Disorder_deleterious_neutral_vus_results_filtered.tsv"
+    fasta_dir = 'disorder/alphafold/fasta_download'
+    output_features_csv = "output/AF2_disorder_albertross_prediction_all.tsv"
     
     # --- Load Mutation Data ---
     mut_df = load_mutation_data(mutation_filepath)
@@ -263,7 +263,7 @@ def main():
     # --- Save Additional Outputs ---
     # Save gene chromosome mapping and reference/mutant sequences.
     data_keep[['CHROM', 'GENES']].drop_duplicates().to_csv("AF2_disorder_genes_chrom.tsv", sep='\t', index=False)
-    data_df.to_csv('../../output/AF2_disorder_albatross_features.csv', index=False)
+    data_df.to_csv('output/AF2_disorder_albatross_features.csv', index=False)
     
     # Save unique wildtype and mutant sequences to files.
     for col, fname in [('WT', 'disorder_ref_seq.list'), ('mut_seq', 'disorder_mut_seq.list')]:
